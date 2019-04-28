@@ -1,0 +1,8 @@
+<div class="ui inverted segment header">
+  <h3 class="ui orange inverted center aligned header">
+    Angular Example
+  </h3>
+  <div class="back-home" *ngIf="router.url !== '/'">
+    <a [routerLink]="['/']"><i class="left arrow icon"></i></a>
+  </div>
+</div>

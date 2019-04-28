@@ -1,0 +1,28 @@
+<div *ngIf="!githubUser" class="my-panel centered">
+  <div class="column panel-login">
+    <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="github">
+    <div class="ui left icon input">
+      <input #email type="text" placeholder="E-mail" value="">
+      <i class="user icon"></i>
+    </div>
+    <div class="ui left icon input">
+      <input #password type="password" placeholder="Passord" value="">
+      <i class="lock icon"></i>
+    </div>
+    <div class="ui secondary vertical animated button" tabindex="0" (click)="githubLogin()">
+      <div class="hidden content">Login</div>
+      <div class="visible content">
+        <i class="arrow alternate circle right icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="githubUser" class="my-panel centered">
+  <comp-github-user [user]="githubUser"></comp-github-user>
+</div>
+<div *ngIf="githubUserFollowers?.length > 0" class="my-panel centered panel-followers">
+  <h3>Followers</h3>
+  <div class="followers-users">
+    <comp-github-user *ngFor="let folower of githubUserFollowers" [user]="folower"></comp-github-user>
+  </div>
+</div>
