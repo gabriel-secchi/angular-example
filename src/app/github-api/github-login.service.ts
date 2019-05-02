@@ -5,7 +5,6 @@ import 'rxjs/add/operator/catch'
 
 import { GithubUser } from './github-user.model';
 import { GITHUB_API } from '../app.api'
-import { ErrorHandler } from './github.error-handler';
 
 @Injectable()
 export class GithubLoginService  {
@@ -19,7 +18,6 @@ export class GithubLoginService  {
     }
 
     return this.http.get<GithubUser>(GITHUB_API + '/user', {headers: myHeaders} )
-      .catch(ErrorHandler.handleError)
   }
 
   getFolowers(user: GithubUser) :  Observable<GithubUser[]> {
